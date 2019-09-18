@@ -1,4 +1,4 @@
-/*! version : 4.17.47
+/*! version : 4.17.47-cg
  =========================================================
  bootstrap-datetimejs
  https://github.com/Eonasdan/bootstrap-datetimepicker
@@ -365,7 +365,7 @@
                     content.append(toolbar);
                 }
                 if (hasDate()) {
-                    content.append($('<li>').addClass((options.collapse && hasTime() ? 'collapse in' : '')).append(dateView));
+                    content.append($('<li>').addClass((options.collapse && hasTime() ? 'collapse in show' : '')).append(dateView));
                 }
                 if (options.toolbarPlacement === 'default') {
                     content.append(toolbar);
@@ -1100,8 +1100,8 @@
                 togglePicker: function (e) {
                     var $this = $(e.target),
                         $parent = $this.closest('ul'),
-                        expanded = $parent.find('.in'),
-                        closed = $parent.find('.collapse:not(.in)'),
+                        expanded = $parent.find('.show'),
+                        closed = $parent.find('.collapse:not(.show)'),
                         collapseData;
 
                     if (expanded && expanded.length) {
@@ -1111,7 +1111,9 @@
                         }
                         if (expanded.collapse) { // if collapse plugin is available through bootstrap.js then use it
                             expanded.collapse('hide');
+                            expanded.removeClass('show');
                             closed.collapse('show');
+                            closed.addClass('show');
                         } else { // otherwise just toggle in class on the two views
                             expanded.removeClass('in');
                             closed.addClass('in');

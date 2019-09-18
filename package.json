@@ -21,13 +21,13 @@
   "devDependencies": {
     "grunt": "latest",
     "grunt-contrib-connect": "^1.0.1",
-    "grunt-contrib-jasmine": "^1.0.3",
+    "grunt-contrib-jasmine": "^2.1.0",
     "grunt-contrib-jshint": "latest",
     "grunt-contrib-less": "latest",
     "grunt-contrib-uglify": "latest",
-    "grunt-env": "^0.4.4",
+    "grunt-env": "^1.0.1",
     "grunt-jscs": "latest",
-    "grunt-nuget": "^0.1.5",
+    "grunt-nuget": "^0.3.1",
     "grunt-string-replace": "latest",
     "load-grunt-tasks": "latest"
   },
@@ -47,5 +47,5 @@
     "type": "git",
     "url": "https://github.com/eonasdan/bootstrap-datetimepicker.git"
   },
-  "version": "4.17.47"
+  "version": "4.17.47-cg"
 }
