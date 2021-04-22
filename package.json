@@ -47,5 +47,11 @@
     "type": "git",
     "url": "https://github.com/eonasdan/bootstrap-datetimepicker.git"
   },
-  "version": "4.17.47-cg"
+  "version": "4.17.47-cg",
+  "scripts": {
+    "build": "grunt build"
+  },
+  "publishConfig": {
+    "registry": "https://repo.micord.ru/repository/npm-private/"
+  }
 }

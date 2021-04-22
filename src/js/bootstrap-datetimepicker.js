@@ -2329,6 +2329,14 @@
             return picker;
         };
 
+        /**
+         * Return actions for customize widget functions
+         * @return {actions}
+         */
+        picker.actions = function () {
+            return actions;
+        };
+
         // initializing element and component attributes
         if (element.is('input')) {
             input = element;
