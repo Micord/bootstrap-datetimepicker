@@ -1,4 +1,4 @@
-/*! version : 4.17.47-cg.2
+/*! version : 4.17.47-micord.2
  =========================================================
  bootstrap-datetimejs
  https://github.com/Eonasdan/bootstrap-datetimepicker
