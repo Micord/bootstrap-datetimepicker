@@ -1716,7 +1716,7 @@
                 setValue(options.maxDate);
             }
             if (viewDate.isAfter(parsedDate)) {
-                viewDate = parsedDate.clone().subtract(options.stepping, 'm');
+                viewDate = parsedDate.clone();
             }
             update();
             return picker;
