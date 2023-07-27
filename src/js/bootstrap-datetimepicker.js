@@ -1,4 +1,4 @@
-/*! version : 4.17.47-cg.1
+/*! version : 4.17.47-micord.2
  =========================================================
  bootstrap-datetimejs
  https://github.com/Eonasdan/bootstrap-datetimepicker
@@ -1716,7 +1716,7 @@
                 setValue(options.maxDate);
             }
             if (viewDate.isAfter(parsedDate)) {
-                viewDate = parsedDate.clone().subtract(options.stepping, 'm');
+                viewDate = parsedDate.clone();
             }
             update();
             return picker;
