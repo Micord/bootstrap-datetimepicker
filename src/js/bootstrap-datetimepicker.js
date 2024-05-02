@@ -1,4 +1,4 @@
-/*! version : 4.17.47-micord.2
+/*! version : 4.17.47-micord.3
  =========================================================
  bootstrap-datetimejs
  https://github.com/Eonasdan/bootstrap-datetimepicker
@@ -141,15 +141,29 @@
                 var returnMoment;
 
                 if (d === undefined || d === null) {
-                    returnMoment = moment(); //TODO should this use format? and locale?
-                } else if (moment.isDate(d) || moment.isMoment(d)) {
+                    if (hasTimeZone()) {
+                        returnMoment = moment.tz(d, parseFormats, options.useStrict, options.timeZone);
+                    }
+                    else {
+                        returnMoment = moment();
+                    }
+                    if (options.maxDate && returnMoment.isAfter(options.maxDate)) {
+                        returnMoment = options.maxDate;
+                    }
+                    else if (options.minDate && returnMoment.isBefore(options.minDate)) {
+                        returnMoment = options.minDate;
+                    }
+                }
+                else if (moment.isDate(d) || moment.isMoment(d)) {
                     // If the date that is passed in is already a Date() or moment() object,
                     // pass it directly to moment.
                     returnMoment = moment(d);
-                } else if (hasTimeZone()) { // There is a string to parse and a default time zone
+                }
+                else if (hasTimeZone()) { // There is a string to parse and a default time zone
                     // parse with the tz function which takes a default time zone if it is not in the format string
                     returnMoment = moment.tz(d, parseFormats, options.useStrict, options.timeZone);
-                } else {
+                }
+                else {
                     returnMoment = moment(d, parseFormats, options.useStrict);
                 }
 
@@ -1716,7 +1730,8 @@
                 setValue(options.maxDate);
             }
             if (viewDate.isAfter(parsedDate)) {
-                viewDate = parsedDate.clone();
+                date = parsedDate.clone();
+                viewDate = date.clone();
             }
             update();
             return picker;
@@ -1752,7 +1767,8 @@
                 setValue(options.minDate);
             }
             if (viewDate.isBefore(parsedDate)) {
-                viewDate = parsedDate.clone().add(options.stepping, 'm');
+                date = parsedDate.clone();
+                viewDate = date.clone();
             }
             update();
             return picker;
