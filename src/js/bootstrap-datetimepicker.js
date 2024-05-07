@@ -1,4 +1,4 @@
-/*! version : 4.17.47-micord.3
+/*! version : 4.17.47-micord.4
  =========================================================
  bootstrap-datetimejs
  https://github.com/Eonasdan/bootstrap-datetimepicker
@@ -142,7 +142,7 @@
 
                 if (d === undefined || d === null) {
                     if (hasTimeZone()) {
-                        returnMoment = moment.tz(d, parseFormats, options.useStrict, options.timeZone);
+                        returnMoment = moment.tz(moment(), parseFormats, options.useStrict, options.timeZone);
                     }
                     else {
                         returnMoment = moment();
