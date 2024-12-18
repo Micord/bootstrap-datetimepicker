@@ -1,4 +1,4 @@
-/*! version : 4.17.47-micord.4
+/*! version : 4.17.47-micord.6
  =========================================================
  bootstrap-datetimejs
  https://github.com/Eonasdan/bootstrap-datetimepicker
@@ -162,6 +162,14 @@
                 else if (hasTimeZone()) { // There is a string to parse and a default time zone
                     // parse with the tz function which takes a default time zone if it is not in the format string
                     returnMoment = moment.tz(d, parseFormats, options.useStrict, options.timeZone);
+
+                    if (options.maxDate && returnMoment.isAfter(options.maxDate) && new RegExp('^\\d{1,2}[.\\-\\s]?\\d{1,2}[.\\-\\s]?$').test(d)) {
+                        returnMoment.year(options.maxDate.year());
+
+                        if (returnMoment.isAfter(options.maxDate) && new RegExp('^\\d{1,2}[.\\-\\s]?$').test(d)) {
+                            returnMoment.month(options.maxDate.month());
+                        }
+                    }
                 }
                 else {
                     returnMoment = moment(d, parseFormats, options.useStrict);
