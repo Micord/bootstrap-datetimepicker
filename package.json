@@ -45,7 +45,7 @@
     "type": "git",
     "url": "https://github.com/eonasdan/bootstrap-datetimepicker.git"
   },
-  "version": "4.17.47-micord.6",
+  "version": "4.17.47-micord.7",
   "scripts": {
     "build": "grunt build"
   },
