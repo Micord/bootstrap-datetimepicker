@@ -1,4 +1,4 @@
-/*! version : 4.17.47-micord.6
+/*! version : 4.17.47-micord.7
  =========================================================
  bootstrap-datetimejs
  https://github.com/Eonasdan/bootstrap-datetimepicker
@@ -172,7 +172,15 @@
                     }
                 }
                 else {
-                    returnMoment = moment(d, parseFormats, options.useStrict);
+                    returnMoment = moment.utc(d, parseFormats, options.useStrict);
+
+                    if (options.maxDate && returnMoment.isAfter(options.maxDate) && new RegExp('^\\d{1,2}[.\\-\\s]?\\d{1,2}[.\\-\\s]?$').test(d)) {
+                        returnMoment.year(options.maxDate.year());
+
+                        if (returnMoment.isAfter(options.maxDate) && new RegExp('^\\d{1,2}[.\\-\\s]?$').test(d)) {
+                            returnMoment.month(options.maxDate.month());
+                        }
+                    }
                 }
 
                 if (hasTimeZone()) {
