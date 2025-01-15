@@ -1,4 +1,4 @@
-/*! version : 4.17.47-micord.7
+/*! version : 4.17.47-micord.7-WEBBPMNEXT-9288-SNAPSHOT
  =========================================================
  bootstrap-datetimejs
  https://github.com/Eonasdan/bootstrap-datetimepicker
